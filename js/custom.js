@@ -260,11 +260,20 @@ $(function(){
 
     });
 
+
     $('.header-menu button').on('click', function () {
         $('.menu-popup').addClass('shown');
     });
     $('.menu-popup .mp-close').on('click', function () {
         $('.menu-popup').removeClass('shown');
+    });
+
+    $('.menu-popup ul li a').on('click', function(e){
+        e.preventDefault();
+        $('.menu-popup').removeClass('shown');
+
+        var menu_el = $(this).attr('href');
+        $('html, body').animate({ scrollTop: $(menu_el).offset().top }, 1000);
     });
 
 });

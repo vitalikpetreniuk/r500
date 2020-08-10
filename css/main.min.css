@@ -4527,7 +4527,7 @@ body.fixed_mev section#r500-projects-bottom .projects-slider-outer .psi-title
 {
     position: fixed;
     top: 200px;
-    left: calc(50vw - 735px);
+    left: calc(50vw - 744px);
 }
 
 body.educational_in_position section#r500-projects-top .projects-slider-outer:nth-of-type(1) .psi-title,
@@ -4751,7 +4751,7 @@ body.fixed_mev section#r500-projects-bottom .projects-slider-outer .psi-dots
 {
     position: fixed;
     top: 200px;
-    left: calc(50vw - 535px);
+    left: calc(50vw - 544px);
 }
 body.educational_in_position section#r500-projects-top .projects-slider-outer:nth-of-type(1) .psi-dots,
 body.map_in_position section#r500-projects-top .projects-slider-outer:nth-of-type(2) .psi-dots,
@@ -5222,7 +5222,7 @@ body.fixed_m section#r500-ministry .ministry-slider-outer .msi-title
 {
     position: fixed;
     top: 200px;
-    left: calc(50vw - 735px);
+    left: calc(50vw - 744px);
 }
 
 body.m_in_position section#r500-ministry .ministry-slider-outer .msi-title
@@ -5251,6 +5251,18 @@ section.section-ministry .ministry-slider-outer .msi-title span {
 section.section-ministry .ministry-slider-outer .msi-dots {
     position: absolute;
     top: 200px;
+    left: 200px;
+}
+
+body.fixed_m section.section-ministry .ministry-slider-outer .msi-dots
+{
+    position: fixed;
+    top: 200px;
+    left: calc(50vw - 544px);
+}
+body.m_in_position section.section-ministry .ministry-slider-outer .msi-dots
+{
+    position: absolute;
     left: 200px;
 }
 
