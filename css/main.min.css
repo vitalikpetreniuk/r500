@@ -3721,7 +3721,7 @@ section#r500-goals .goals-content h2 + span {
     font-weight: 400;
     line-height: 1;
     text-transform: uppercase;
-    margin: 0 25% 50px
+    margin: 0 25% 50px;
 }
 
 section#r500-goals .goals-content .goals-slider .gs-item {
@@ -3808,8 +3808,8 @@ section#r500-goals .goals-content .goals-slider .slick-arrow {
     outline: none;
 
     display: block;
-    width: 20px;
-    height: 11px;
+    width: 93px;
+    height: 20px;
     opacity: .3;
     font-size: 0;
     color: transparent;
@@ -3820,7 +3820,7 @@ section#r500-goals .goals-content .goals-slider .slick-arrow {
 
     position: absolute;
     z-index: 10;
-    left: 13.3%;
+    left: 10%;
     cursor: pointer;
 }
 
@@ -3843,7 +3843,7 @@ section#r500-goals .goals-content .goals-slider .slick-next {
     background-image: url("../img/icons/down-slide.svg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: auto 20px;
 }
 
 section#r500-goals .goals-content .goals-slider .slick-dots {
@@ -4573,8 +4573,8 @@ section.section-projects .projects-slider-outer {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 
-    -webkit-transition: all .1s linear;
-    transition: all .1s linear;
+    -webkit-transition: all .37s linear;
+    transition: all .37s linear;
 }
 
 section.section-projects .projects-slider-outer .psi-title {
@@ -4700,6 +4700,10 @@ section.section-projects .projects-slider-outer .projects-slider .ps-item .psi-i
     position: relative
 }
 
+section.section-projects .projects-slider-outer .projects-slider .ps-item .psi-image .item
+{
+    display: block;
+}
 section.section-projects .projects-slider-outer .projects-slider .ps-item .psi-image img {
     display: block;
     width: 100%
@@ -4714,7 +4718,7 @@ section.section-projects .projects-slider-outer .projects-slider .ps-item .psi-i
     color: transparent;
     position: absolute;
     z-index: 5;
-    bottom: 3.5px;
+    bottom: 3px;
     left: 50%;
     width: 60px !important;
     height: 55px;
@@ -4889,7 +4893,7 @@ section.section-projects:before {
 
 section.section-projects .projects-slider-outer.inactive
 {
-    opacity: .3;
+    opacity: .12;
 }
 
 section#r500-personalities .personalities-header {
@@ -5155,10 +5159,11 @@ section#r500-team .team-list div
 {
     width: 12.5%;
 }
-section#r500-team .team-list div img
-{
+section#r500-team .team-list div img {
     width: 100%;
+    height: 100%;
     display: block;
+    object-fit: cover;
 }
 section#r500-team h2 {
     color: #fff;
@@ -5437,6 +5442,11 @@ section.section-ministry .ministry-slider .ms-item .msi-info p strong {
 
 section.section-ministry .ministry-slider .ms-item .msi-image {
     width: 720px
+}
+
+section.section-ministry .ministry-slider .ms-item .msi-image .item
+{
+    display: block;
 }
 
 section.section-ministry .ministry-slider .ms-item .msi-image img {
@@ -5755,8 +5765,8 @@ section#r500-results .results-content .results-slider .slick-arrow
     outline: none;
 
     display: block;
-    width: 20px;
-    height: 11px;
+    width: 93px;
+    height: 20px;
     opacity: .3;
     font-size: 0;
     color: transparent;
@@ -5767,7 +5777,7 @@ section#r500-results .results-content .results-slider .slick-arrow
 
     position: absolute;
     z-index: 10;
-    left: 13.3%;
+    left: 10%;
     cursor: pointer;
 }
 section#r500-results .results-content .results-slider .slick-arrow:hover
@@ -5790,7 +5800,7 @@ section#r500-results .results-content .results-slider .slick-next
     background-image: url("../img/icons/down-slide.svg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: auto 20px;
 }
 
 section#r500-results .results-content .results-slider .slick-dots {
@@ -7061,6 +7071,15 @@ section#r500-contact a {
     section#r500-decree .decree-popup .dp-content .dp-header .decree-text
     {
         line-height: 26px;
+    }
+
+
+    section#r500-goals .goals-content .goals-slider .slick-prev,
+    section#r500-goals .goals-content .goals-slider .slick-next,
+    section#r500-results .results-content .results-slider .slick-prev,
+    section#r500-results .results-content .results-slider .slick-next
+    {
+        background-size: auto 16px;
     }
 }
 
