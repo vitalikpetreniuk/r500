@@ -3527,7 +3527,7 @@ section#r500-anniversary {
 section#r500-anniversary h2 {
     color: #2e3031;
     width: 100%;
-    padding-left: 25%;
+    padding-left: calc(25% + 15px);
     box-sizing: border-box;
     margin: 0 auto 115px
 }
