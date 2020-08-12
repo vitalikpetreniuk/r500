@@ -1,6 +1,7 @@
 $(function(){
 
     var top_offset;
+    var team = $('#r500-team');
 
     var educational = $('#r500-projects-top').find('.projects-slider-outer').eq(0);
     var media_and_publishing = $('#r500-projects-top').find('.projects-slider-outer').eq(1);
@@ -77,9 +78,15 @@ $(function(){
     ministry.find('.msi-dots').append(ministry_dots);
     ministry.find('.msi-dots span:first-child').addClass('active');
 
-
+    var team_centred;
+    var team_finish;
 
     $(window).on('scroll', function(){
+
+        team_centred = team.offset().top - ($(window).height() - team.height());
+        team_finish = team.offset().top + team.height();
+
+        console.log($(this).scrollTop());
 
         var $this = $(this);
         var educational_offset = educational.offset().top;
@@ -133,6 +140,16 @@ $(function(){
             educational.find('.psi-dots').css('top', li_height_offset);
         }
 
+        if ($this.scrollTop() > educational_finishline + 200)
+        {
+            educational.addClass('inactive');
+            media_and_publishing.removeClass('inactive');
+        }else
+        {
+            educational.removeClass('inactive');
+            media_and_publishing.addClass('inactive');
+        }
+
         if ($this.scrollTop() >= media_and_publishing_offset && $this.scrollTop() < media_and_publishing_finishline) {
             $('body').removeClass('map_in_position').addClass('fixed_map');
             media_and_publishing.find('.psi-title').css('top', top_offset);
@@ -158,6 +175,16 @@ $(function(){
             var li_map_height_offset = 'calc(100% - '+li_map_height+'px)';
             media_and_publishing.find('.psi-title').css('top', li_map_height_offset);
             media_and_publishing.find('.psi-dots').css('top', li_map_height_offset);
+        }
+
+        if ($this.scrollTop() > media_and_publishing_finishline + 200)
+        {
+            media_and_publishing.addClass('inactive');
+            events.removeClass('inactive');
+        }else if ($this.scrollTop() < media_and_publishing_finishline + 200 && $this.scrollTop() > educational_finishline + 200)
+        {
+            media_and_publishing.removeClass('inactive');
+            events.addClass('inactive');
         }
 
 
@@ -242,20 +269,25 @@ $(function(){
             ministry.find('.msi-dots').css('top', li_m_height_offset);
         }
 
-        var team_centred = $('#r500-team').offset().top - ($(window).height() - $('#r500-team').height())-200;
-        var team_finish = $('#r500-team').offset().top + $('#r500-team').height();
 
-        if ($this.scrollTop() >= team_centred && $this.scrollTop() < team_finish){
-            $('#r500-team').addClass('no-h');
-            setTimeout(function(){
-                $('#r500-team').addClass('team-visible');
-            },200);
+        if ($this.scrollTop() > team_centred && $this.scrollTop() < team_finish){
+            if(team.find('h2.hide-out').length)
+            {}else
+            {
+                team.find('h2').addClass('hide-out');
+                setTimeout(function(){
+                    $('#r500-team').addClass('team-visible');
+                },500);
+            }
         }else
         {
-            $('#r500-team').removeClass('team-visible');
-            setTimeout(function(){
-                $('#r500-team').removeClass('no-h');
-            },200);
+            if(team.find('h2.hide-out').length)
+            {
+                $('#r500-team').removeClass('team-visible');
+                setTimeout(function(){
+                    team.find('h2').removeClass('hide-out');
+                },500);
+            }
         }
 
     });

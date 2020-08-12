@@ -3195,8 +3195,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     display: block
 }
 
+html, body
+{
+    /*scrollbar-width: none;*/
+}
 body {
-    line-height: 1
+    line-height: 1;
+    /*height: 100%;*/
+    /*overflow: hidden;*/
+}
+body.move-on
+{
+    overflow: visible;
+    height: auto;
 }
 
 ol, ul {
@@ -3516,7 +3527,8 @@ section#r500-anniversary {
 section#r500-anniversary h2 {
     color: #2e3031;
     width: 100%;
-    max-width: 580px;
+    padding-left: 25%;
+    box-sizing: border-box;
     margin: 0 auto 115px
 }
 
@@ -3662,25 +3674,30 @@ section#r500-goals {
     height: 100vh;
     overflow: hidden;
     background: url(../img/goals-bg.jpg) no-repeat center;
-    background-size: cover
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
 }
 
 section#r500-goals .container {
-    height: 100vh;
-    padding-top: 200px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    position: relative
+    position: relative;
 }
 
 section#r500-goals .container:after {
     content: '';
     position: absolute;
-    top: 0;
+    top: 50%;
     bottom: 0;
     right: 187px;
     width: 1px;
-    background: rgba(245, 245, 245, .3)
+    height: 100vh;
+    background: rgba(245, 245, 245, .3);
+
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 section#r500-goals .goals-content {
@@ -3730,7 +3747,11 @@ section#r500-goals .goals-content .goals-slider .gs-item h3:before {
     text-transform: uppercase;
     position: absolute;
     top: 10px;
-    left: -25%
+    left: -30%;
+
+    display: block;
+    width: 93px;
+    text-align: center;
 }
 
 section#r500-goals .goals-content .goals-slider .gs-item .goals-info p {
@@ -3779,6 +3800,50 @@ section#r500-goals .goals-content .goals-slider .slick-slide:nth-child(9) h3:bef
 
 section#r500-goals .goals-content .goals-slider .slick-slide:nth-child(10) h3:before {
     content: 'X'
+}
+
+section#r500-goals .goals-content .goals-slider .slick-arrow {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    display: block;
+    width: 20px;
+    height: 11px;
+    opacity: .3;
+    font-size: 0;
+    color: transparent;
+    text-indent: -9999px;
+
+    -webkit-transition: all.15s linear;
+    transition: all.15s linear;
+
+    position: absolute;
+    z-index: 10;
+    left: 13.3%;
+    cursor: pointer;
+}
+
+section#r500-goals .goals-content .goals-slider .slick-arrow:hover {
+    opacity: 1;
+}
+
+section#r500-goals .goals-content .goals-slider .slick-prev {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    top: 70px;
+}
+
+section#r500-goals .goals-content .goals-slider .slick-next {
+    top: 120px;
+}
+
+section#r500-goals .goals-content .goals-slider .slick-prev,
+section#r500-goals .goals-content .goals-slider .slick-next {
+    background-image: url("../img/icons/down-slide.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 section#r500-goals .goals-content .goals-slider .slick-dots {
@@ -3892,7 +3957,6 @@ section#r500-message .message-content .message-points .m-point {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    cursor: pointer
 }
 
 section#r500-message .message-content .message-points .m-point .m-point-bg {
@@ -3918,7 +3982,8 @@ section#r500-message .message-content .message-points .m-point .m-point-bg img {
 section#r500-message .message-content .message-points .m-point .m-point-content {
     width: 60%;
     position: relative;
-    z-index: 2
+    z-index: 2;
+    cursor: pointer;
 }
 
 section#r500-message .message-content .message-points .m-point .m-point-content .mp-number {
@@ -4506,7 +4571,10 @@ section.section-projects .projects-slider-outer {
     align-items: center;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
 }
 
 section.section-projects .projects-slider-outer .psi-title {
@@ -4819,6 +4887,11 @@ section.section-projects:before {
     background-color: #f5f5f5
 }
 
+section.section-projects .projects-slider-outer.inactive
+{
+    opacity: .3;
+}
+
 section#r500-personalities .personalities-header {
     max-width: 1126px;
     margin: 0 auto;
@@ -5118,10 +5191,10 @@ section#r500-team:after {
     height: 100%;
     background: rgba(0, 0, 0, .8);
 
-    -webkit-transition: all .15s linear;
-    transition: all .15s linear;
+    -webkit-transition: all .4s linear;
+    transition: all .4s linear;
 }
-section#r500-team.no-h h2
+section#r500-team h2.hide-out
 {
     opacity: 0;
     visibility: hidden;
@@ -5547,12 +5620,13 @@ section#r500-results {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     background: url(../img/results-bg.jpg) no-repeat center;
-    background-size: cover
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
 }
 
 section#r500-results .container {
-    height: 100vh;
-    padding-top: 200px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     position: relative
@@ -5561,11 +5635,15 @@ section#r500-results .container {
 section#r500-results .container:after {
     content: '';
     position: absolute;
-    top: 0;
+    top: 50%;
     bottom: 0;
     right: 187px;
     width: 1px;
-    background: rgba(245, 245, 245, .3)
+    height: 100vh;
+    background: rgba(245, 245, 245, .3);
+
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 section#r500-results .results-content {
@@ -5620,7 +5698,10 @@ section#r500-results .results-content p:before {
     text-transform: uppercase;
     position: absolute;
     top: 10px;
-    left: -25%
+    left: -30%;
+    display: block;
+    width: 93px;
+    text-align: center;
 }
 
 section#r500-results .results-content .results-slider .rs-item {
@@ -5665,6 +5746,51 @@ section#r500-results .results-content .results-slider .slick-slide:nth-child(9) 
 
 section#r500-results .results-content .results-slider .slick-slide:nth-child(10) p:before {
     content: 'X'
+}
+
+section#r500-results .results-content .results-slider .slick-arrow
+{
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    display: block;
+    width: 20px;
+    height: 11px;
+    opacity: .3;
+    font-size: 0;
+    color: transparent;
+    text-indent: -9999px;
+
+    -webkit-transition: all.15s linear;
+    transition: all.15s linear;
+
+    position: absolute;
+    z-index: 10;
+    left: 13.3%;
+    cursor: pointer;
+}
+section#r500-results .results-content .results-slider .slick-arrow:hover
+{
+    opacity: 1;
+}
+section#r500-results .results-content .results-slider .slick-prev
+{
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    top: 70px;
+}
+section#r500-results .results-content .results-slider .slick-next
+{
+    top: 120px;
+}
+section#r500-results .results-content .results-slider .slick-prev,
+section#r500-results .results-content .results-slider .slick-next
+{
+    background-image: url("../img/icons/down-slide.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 section#r500-results .results-content .results-slider .slick-dots {
@@ -6232,14 +6358,10 @@ section#r500-contact a {
     }
 
     section#r500-anniversary .anniversary-content .ac-info .info-content + .read-more {
-        font-size: 12px;
+        font-size: 16px;
         line-height: 1;
         display: inline-block;
         margin-top: 30px
-    }
-
-    section#r500-goals .container {
-        padding-top: 158px
     }
 
     section#r500-goals .goals-content h2 {
@@ -6262,8 +6384,12 @@ section#r500-contact a {
     }
 
     section#r500-goals .goals-content .goals-slider .gs-item .goals-info p {
-        font-size: 13px;
-        line-height: 21px
+        font-size: 16px;
+        line-height: 26px;
+    }
+    section#r500-goals .goals-content .goals-slider .gs-item .goals-info p br
+    {
+        display: none;
     }
 
     section#r500-goals .container:after {
@@ -6288,8 +6414,8 @@ section#r500-contact a {
     }
 
     section#r500-message h2 + span {
-        font-size: 14px;
-        line-height: 24px
+        font-size: 16px;
+        line-height: 26px
     }
 
     section#r500-message .message-content .message-points .m-point .m-point-content .mp-number {
@@ -6304,8 +6430,8 @@ section#r500-contact a {
     }
 
     section#r500-message .message-content .message-points .m-point .m-point-content .mp-text p {
-        font-size: 14px;
-        line-height: 24px
+        font-size: 16px;
+        line-height: 26px
     }
 
     section#r500-ideas {
@@ -6328,8 +6454,8 @@ section#r500-contact a {
     }
 
     section#r500-brand .brand-content .brand-side span {
-        font-size: 16px;
-        line-height: 22px
+        font-size: 17px;
+        line-height: 21px
     }
 
     section#r500-brand h2 {
@@ -6337,8 +6463,8 @@ section#r500-contact a {
     }
 
     section#r500-brand .brand-content .brand-info .info-content p {
-        font-size: 14px;
-        line-height: 24px
+        font-size: 16px;
+        line-height: 26px
     }
 
     section#r500-brand .brand-content .brand-info .info-content a.explore {
@@ -6374,8 +6500,8 @@ section#r500-contact a {
     }
 
     section#r500-structure .structure-content .structure-info p {
-        font-size: 14px;
-        line-height: 24px
+        font-size: 16px;
+        line-height: 26px
     }
 
     section#r500-structure .structure-content .structure-list {
@@ -6394,7 +6520,7 @@ section#r500-contact a {
 
     section#r500-structure .structure-content .structure-list + span {
         margin-top: 50px;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 16px
     }
 
@@ -6415,14 +6541,14 @@ section#r500-contact a {
 
     section#r500-decree .decree-info .decree-text {
         padding-left: 29px;
-        font-size: 14px;
-        line-height: 24px
+        font-size: 16px;
+        line-height: 26px
     }
 
     section#r500-decree .decree-info .decree-text + a {
         margin-left: 29px;
         margin-top: 34px;
-        font-size: 14px;
+        font-size: 16px;
         background-size: auto 10px
     }
 
@@ -6493,8 +6619,8 @@ section#r500-contact a {
     }
 
     section.section-projects .projects-slider-outer .projects-slider .ps-item .psi-info p {
-        font-size: 14px;
-        line-height: 24px
+        font-size: 16px;
+        line-height: 26px
     }
 
     section#r500-personalities .personalities-header {
@@ -6523,8 +6649,8 @@ section#r500-contact a {
     }
 
     section#r500-personalities .personalities-header h4 + p {
-        font-size: 14px;
-        line-height: 24px
+        font-size: 16px;
+        line-height: 26px
     }
 
     section#r500-personalities .personalities-list .personality {
@@ -6552,7 +6678,7 @@ section#r500-contact a {
 
     section#r500-personalities .personalities-list .personality .personality-info .personality-info_content .personality-info_description p {
         font-size: 16px;
-        line-height: 21px
+        line-height: 26px
     }
 
     section#r500-personalities .personalities-list .personality.personality-right {
@@ -6579,8 +6705,8 @@ section#r500-contact a {
     }
 
     section#r500-personalities .personalities-list .personality-divider h4 + p {
-        font-size: 14px;
-        line-height: 24px
+        font-size: 16px;
+        line-height: 26px
     }
 
     section#r500-regions {
@@ -6635,8 +6761,8 @@ section#r500-contact a {
     }
 
     section.section-ministry h2 + span {
-        font-size: 14px;
-        line-height: 24px
+        font-size: 16px;
+        line-height: 26px
     }
 
     section.section-ministry a {
@@ -6695,8 +6821,8 @@ section#r500-contact a {
     }
 
     section.section-ministry .ministry-slider .ms-item .msi-info p {
-        font-size: 13px;
-        line-height: 22px
+        font-size: 16px;
+        line-height: 26px
     }
 
     section#r500-organizations {
@@ -6712,8 +6838,8 @@ section#r500-contact a {
     }
 
     section#r500-organizations h4 + p {
-        font-size: 14px;
-        line-height: 24px;
+        font-size: 16px;
+        line-height: 26px;
         max-width: 600px
     }
 
@@ -6725,10 +6851,6 @@ section#r500-contact a {
 
     section#r500-results {
         margin-top: 115px
-    }
-
-    section#r500-results .container {
-        padding-top: 152px
     }
 
     section#r500-results .results-content h2 {
@@ -6785,8 +6907,8 @@ section#r500-contact a {
     }
 
     section#r500-movement .movement-header h2 + p {
-        font-size: 14px;
-        line-height: 24px;
+        font-size: 16px;
+        line-height: 26px;
         margin-bottom: 77px
     }
 
@@ -6856,13 +6978,15 @@ section#r500-contact a {
     }
 
     section#r500-relationship .relationship-info .relationship-text p {
-        font-size: 14px;
-        line-height: 22px;
+        font-size: 16px;
+        line-height: 26px;
         margin-bottom: 28px
     }
 
     section#r500-relationship .relationship-info .relationship-text ul li {
-        margin-bottom: 15px
+        margin-bottom: 15px;
+        font-size: 16px;
+        line-height: 26px;
     }
 
     section#r500-contact .contact-logo {
@@ -6898,7 +7022,7 @@ section#r500-contact a {
     {
         position: fixed;
         top: 150px;
-        left: calc(50vw - 575px);
+        left: calc(50vw - 584px);
     }
     body.educational_in_position section#r500-projects-top .projects-slider-outer:nth-of-type(1) .psi-title,
     body.map_in_position section#r500-projects-top .projects-slider-outer:nth-of-type(2) .psi-title,
@@ -6917,7 +7041,7 @@ section#r500-contact a {
     {
         position: fixed;
         top: 150px;
-        left: calc(50vw - 415px);
+        left: calc(50vw - 424px);
     }
     body.educational_in_position section#r500-projects-top .projects-slider-outer:nth-of-type(1) .psi-dots,
     body.map_in_position section#r500-projects-top .projects-slider-outer:nth-of-type(2) .psi-dots,
@@ -6932,6 +7056,42 @@ section#r500-contact a {
     section.section-projects .container:before
     {
         bottom: -150px;
+    }
+
+    section#r500-decree .decree-popup .dp-content .dp-header .decree-text
+    {
+        line-height: 26px;
+    }
+}
+
+@media only screen and (max-width: 1499px) {
+    section#r500-welcome .welcome-quote blockquote,
+    section#r500-goals .goals-content .goals-slider .gs-item .goals-info p,
+    section#r500-message h2 + span,
+    section#r500-message .message-content .message-points .m-point .m-point-content .mp-text p,
+    section#r500-brand .brand-content .brand-info .info-content p,
+    section#r500-structure .structure-content .structure-info p,
+    section#r500-decree .decree-info .decree-text,
+    section.section-projects .projects-slider-outer .projects-slider .ps-item .psi-info p,
+    section#r500-personalities .personalities-header h4 + p,
+    section#r500-personalities .personalities-list .personality-divider h4 + p,
+    section#r500-regions h2 + p, section.section-ministry h2 + span,
+    section.section-ministry .ministry-slider .ms-item .msi-info p,
+    section#r500-organizations h4 + p,
+    section#r500-movement .movement-header h2 + p,
+    section#r500-relationship .relationship-info .relationship-text p,
+    section#r500-relationship .relationship-info .relationship-text ul li
+    {
+        font-size: 15px;
+        line-height: 25px;
+    }
+    section#r500-welcome .welcome-quote blockquote span,
+    section#r500-anniversary .anniversary-content .ac-info .info-content p,
+    section#r500-anniversary .anniversary-content .ac-info .info-content + .read-more,
+    section#r500-structure .structure-content .structure-list + span,
+    section#r500-decree .decree-info .decree-text + a
+    {
+        font-size: 15px;
     }
 }
 
@@ -7092,17 +7252,8 @@ section#r500-contact a {
         margin-bottom: 20px
     }
 
-    section#r500-anniversary .anniversary-content .ac-info .info-content p {
-        font-size: 14px;
-        line-height: 21px
-    }
-
     section#r500-anniversary .anniversary-content .ac-info .info-content + .read-more {
         margin-top: 10px
-    }
-
-    section#r500-goals .container {
-        padding-top: 120px
     }
 
     section#r500-goals .goals-content h2, section#r500-goals .goals-content h2 + span {
@@ -7119,11 +7270,6 @@ section#r500-contact a {
         font-size: 42px
     }
 
-    section#r500-goals .goals-content .goals-slider .gs-item .goals-info p {
-        font-size: 11px;
-        line-height: 17px
-    }
-
     section#r500-message {
         padding: 120px 0 0
     }
@@ -7136,10 +7282,6 @@ section#r500-contact a {
         margin-top: 50px;
         font-size: 24px;
         line-height: 32px
-    }
-
-    section#r500-message .message-content .message-points .m-point .m-point-content .mp-text p {
-        line-height: 21px
     }
 
     section#r500-ideas .divider-content {
@@ -7155,27 +7297,12 @@ section#r500-contact a {
         padding-left: 20px
     }
 
-    section#r500-brand .brand-content .brand-side span {
-        font-size: 14px;
-        line-height: 18px
-    }
-
     section#r500-brand h2 {
         margin-bottom: 20px
     }
 
-    section#r500-brand .brand-content .brand-info .info-content p {
-        font-size: 12px;
-        line-height: 22px
-    }
-
     section#r500-brand .brand-content .brand-info .info-content a.explore {
         margin-top: 0
-    }
-
-    section#r500-structure .structure-content .structure-info p {
-        font-size: 12px;
-        line-height: 21px
     }
 
     section#r500-structure .structure-content .structure-list ul li {
@@ -7185,8 +7312,6 @@ section#r500-contact a {
 
     section#r500-structure .structure-content .structure-list + span {
         margin-top: 30px;
-        font-size: 12px;
-        line-height: 14px
     }
 
     section#r500-decree {
@@ -7201,11 +7326,6 @@ section#r500-contact a {
         font-size: 25px;
         line-height: 34px;
         margin-bottom: 20px
-    }
-
-    section#r500-decree .decree-info .decree-text {
-        font-size: 14px;
-        line-height: 19px
     }
 
     section#r500-decree .decree-info .decree-text + a {
@@ -7320,11 +7440,6 @@ section#r500-contact a {
         margin-bottom: 35px
     }
 
-    section#r500-regions h2 + p {
-        font-size: 14px;
-        line-height: 24px
-    }
-
     section#r500-regions img {
         width: 60%
     }
@@ -7393,10 +7508,6 @@ section#r500-contact a {
     section#r500-organizations .organizations-gallery {
         left: -webkit-calc(-50vw + 445px);
         left: calc(-50vw + 445px)
-    }
-
-    section#r500-results .container {
-        padding-top: 120px
     }
 
     section#r500-results .results-content h2, section#r500-results .results-content h2 + span {
@@ -7480,9 +7591,7 @@ section#r500-contact a {
 
 
     section.section-projects .projects-slider-outer .psi-dots,
-    section.section-projects .projects-slider-outer .psi-title,
-    section.section-ministry .ministry-slider-outer .msi-dots,
-    section.section-ministry .ministry-slider-outer .msi-title
+    section.section-ministry .ministry-slider-outer .msi-dots
     {
         display: none;
     }
@@ -7490,6 +7599,24 @@ section#r500-contact a {
     {
         bottom: 0;
     }
+    section.section-projects .projects-slider-outer .psi-title,
+    section.section-ministry .ministry-slider-outer .msi-title
+    {
+        top: 100px;
+    }
+    section.section-projects .projects-slider-outer .psi-title span,
+    section.section-ministry .ministry-slider-outer .msi-title span
+    {
+        font-size: 30px;
+    }
+
+
+    section.section-projects .projects-slider-outer.inactive
+    {
+        opacity: 1 !important;
+    }
+
+
 }
 
 @media only screen and (max-width: 1023px) {
@@ -8082,6 +8209,34 @@ section#r500-contact a {
     section#r500-team .team-list div
     {
         width: 16.6666%;
+    }
+
+    section.section-projects .projects-slider-outer .psi-title
+    {
+        height: auto !important;
+    }
+    section.section-projects .projects-slider-outer .projects-slider
+    {
+        margin-top: 0;
+    }
+    section.section-projects .projects-slider-outer
+    {
+        margin-bottom: 40px !important;
+    }
+
+    section.section-ministry .ministry-slider-outer .msi-title
+    {
+        display: none;
+    }
+    section.section-ministry .ministry-slider-outer .msi-title span
+    {
+        -webkit-writing-mode: horizontal-tb;
+        -ms-writing-mode: lr-tb;
+        writing-mode: horizontal-tb;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        font-size: 37px;
     }
 }
 
