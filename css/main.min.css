@@ -5074,6 +5074,27 @@ section#r500-personalities .personalities-list .personality-divider h4 + p {
     padding: 0 18%
 }
 
+section#r500-personalities .personalities-list .personality-bottom {
+    max-width: 1126px;
+    margin: 0 auto 195px;
+    padding: 190px 0 170px;
+    background: #f5f5f5;
+    text-align: center
+}
+section#r500-personalities .personalities-list .personality-bottom p
+{
+    font-family: 'EB Garamond', serif;
+    letter-spacing: 0;
+    font-size: 38px;
+    line-height: 44px;
+    color: #563638;
+
+    display: block;
+    max-width: 840px;
+    width: 100%;
+    margin: 0 auto;
+}
+
 section#r500-regions {
     background: #f5f5f5;
     padding: 127px 0 170px
@@ -7081,6 +7102,21 @@ section#r500-contact a {
     {
         background-size: auto 16px;
     }
+
+
+    section#r500-personalities .personalities-list .personality-bottom
+    {
+        max-width: 880px;
+        padding: 150px 0 140px;
+        margin-bottom: 140px;
+    }
+    section#r500-personalities .personalities-list .personality-bottom p
+    {
+        max-width: none;
+        padding: 0 12%;
+        font-size: 30px;
+        line-height: 34px;
+    }
 }
 
 @media only screen and (max-width: 1499px) {
@@ -7635,6 +7671,18 @@ section#r500-contact a {
         opacity: 1 !important;
     }
 
+    section#r500-personalities .personalities-list .personality-bottom
+    {
+        max-width: 720px;
+        margin: 100px auto;
+        margin-bottom: 100px;
+    }
+    section#r500-personalities .personalities-list .personality-bottom p
+    {
+        padding: 0 8%;
+        font-size: 27px;
+        line-height: 32px;
+    }
 
 }
 
@@ -8257,6 +8305,14 @@ section#r500-contact a {
         transform: none;
         font-size: 37px;
     }
+
+
+    section#r500-personalities .personalities-list .personality-bottom
+    {
+        max-width: none;
+        padding: 80px 0;
+        margin-bottom: 60px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -8796,5 +8852,10 @@ section#r500-contact a {
         left: 14px;
     }
 
-
+    section#r500-personalities .personalities-list .personality-bottom p
+    {
+        font-size: 21px;
+        line-height: 26px;
+        padding: 0 20px;
+    }
 }
